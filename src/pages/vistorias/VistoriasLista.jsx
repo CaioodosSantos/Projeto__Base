@@ -43,7 +43,7 @@ const VistoriasLista = () => {
         <tbody>
           {vistorias.map((item, i) => (
             <tr key={i} class="table-primary">
-              <td>{item.nome}</td>
+              <td class="text-primary">{item.nome}</td>
               <td>{item.data}</td>
               <td>{item.telefone}</td>
               <td>{item.motivo}</td>

@@ -44,7 +44,7 @@ const MudancasLista = () => {
           {mudancas.map((item, i) => (
             <tr key={i} class="table-primary">
               <td>{item.tipo}</td>
-              <td>{item.nome}</td>
+              <td class="text-primary">{item.nome}</td>
               <td>{item.data}</td>
               <td>{item.endereço}</td>
               <td>
