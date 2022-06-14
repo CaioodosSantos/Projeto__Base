@@ -14,9 +14,21 @@ const visitaValidator = {
             message: "O valor mínimo é 3"
         },
     },
+
     curso_id: {
         required: true
-    }
+    },
+
+    data: {
+        required: "O campo data é Obrigatório",
+    },
+    
+    telefone: {
+        minLength: {
+            value: 9,
+            message: "Quantidade mínima de caracteres não informado"
+        },
+    },
 }
 
 export default visitaValidator

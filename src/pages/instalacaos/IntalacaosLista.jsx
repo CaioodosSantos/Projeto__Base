@@ -30,10 +30,10 @@ const InstalacaosLista = () => {
       <h1>Instalações</h1>
 
       <Link style={{textDecoration: 'none'}} to={'/instalacaos/create'}><IoIosAddCircleOutline></IoIosAddCircleOutline>Incluir novo</Link>
-      <Table striped bordered hover>
+      <Table striped bordered hover >
         <thead>
-          <tr>
-            <th>#</th>
+          <tr class="table-dark">
+            
             <th>Nome</th>
             <th>Data e Horário</th>
             <th>Região</th>
@@ -41,23 +41,25 @@ const InstalacaosLista = () => {
             <th>Telefone</th>
             <th>Endereço</th>
             <th>Observações</th>
+            <th>Modificação</th>
           </tr>
         </thead>
         <tbody>
           {instalacaos.map((item, i) => (
-            <tr key={i}>
+            <tr key={i} class="table-primary">
+              
+              <td class="text-primary">{item.nome}</td>
+              <td>{item.periodo}</td>
+              <td>{item.regiao}</td>
+              <td>{item.protocolo}</td>
+              <td>{item.telefone}</td>
+              <td>{item.endereço}</td>
+              <td>{item.observacoes}</td>
               <td>
                 <Link style={{textDecoration: 'none'}} to={'/instalacaos/' + i}><FiEdit></FiEdit>Edit </Link>{'    '}
                 <Button onClick={() => apagar(i)} startIcon={<DeleteIcon /> }>Delete </Button>
 
               </td>
-              <td>{item.nome}</td>
-              <td>{item.periodo}</td>
-              <td>{item.região}</td>
-              <td>{item.protocolo}</td>
-              <td>{item.telefone}</td>
-              <td>{item.endereço}</td>
-              <td>{item.observacoes}</td>
             </tr>
             
           ))}

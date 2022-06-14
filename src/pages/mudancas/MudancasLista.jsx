@@ -26,29 +26,31 @@ const MudancasLista = () => {
 
   return (
     <div>
-      <h1>Mudanças de enredeço e ponto</h1>
+      <h1>Mudanças de endereço e ponto</h1>
 
       <Link style={{textDecoration: 'none'}} to={'/mudancas/create'}><IoIosAddCircleOutline></IoIosAddCircleOutline>Incluir novo</Link> 
 
       <Table striped bordered hover>
         <thead>
-          <tr>
-            <th>#</th>
+        <tr class="table-dark">
+            <th>Tipo</th>
             <th>Nome</th>
-            <th>Data inicio</th>
-            <th>Data fim</th>
+            <th>Data</th>
+            <th>Novo endereço</th>
+            <th>Modificação</th>
           </tr>
         </thead>
         <tbody>
           {mudancas.map((item, i) => (
-            <tr key={i}>
+            <tr key={i} class="table-primary">
+              <td>{item.tipo}</td>
+              <td>{item.nome}</td>
+              <td>{item.data}</td>
+              <td>{item.endereço}</td>
               <td>
               <Link style={{textDecoration: 'none'}} to={'/mudancas/' + i}><FiEdit></FiEdit>Edit </Link>{'    '}
               <Button onClick={() => apagar(i)} startIcon={<DeleteIcon /> }>Delete </Button> 
               </td>
-              <td>{item.nome}</td>
-              <td>{item.datainicio}</td>
-              <td>{item.datafim}</td>
             </tr>
           ))}
         </tbody>

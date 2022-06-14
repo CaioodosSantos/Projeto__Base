@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
-import { FaCheck } from 'react-icons/fa'
+import { FaCheck, FaArrowLeft } from 'react-icons/fa'
 import { BsArrowLeft } from 'react-icons/bs'
 import MudancaService from '../../services/academico/MudancaService';
 import InstalacaoService from '../../services/academico/InstalacaoService';
 import mudancaValidator from '../../validators/mudancaValidator';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { mask } from 'remask';
  
 const Mudancas = () => {
 
@@ -37,30 +38,45 @@ const Mudancas = () => {
 
     navigate('/mudancas')
   }
+  
+  function handleChange(event) {
+    const mascara = event.target.getAttribute('mask')
+    setValue(event.target.name, mask(event.target.value, mascara))
+  }
 
   return (
     <div>
-      <h1>Mudanca</h1>
+      <h1>Mudança de endereço e ponto</h1>
 
       <Form >
         <Form.Group className="mb-3" controlId="nome">
-          <Form.Label>Nome: </Form.Label>
-          <Form.Control isInvalid={errors.nome} type="text" {...register("nome", mudancaValidator.nome)} />
-          {errors.nome && <span>{errors.nome.message}</span>}
+          <Form.Label>Tipo: </Form.Label>
+          <Form.Control isInvalid={errors.tipo} type="text" {...register("tipo", mudancaValidator.tipo)} />
+          {errors.tipo && <span>{errors.tipo.message}</span>}
         </Form.Group>
-        <Form.Group className="mb-3" controlId="datainicio">
-          <Form.Label>Data inicio: </Form.Label>
-          <Form.Control isInvalid={errors.datainicio} type="date" {...register("datainicio", mudancaValidator.datainicio)} />
-          {errors.datainicio && <span>{errors.datainicio.message}</span>}
+        <Form.Group className="mb-3" controlId="instalacao">
+          <Form.Label>Instalação: </Form.Label>
+          <Form.Select {...register("nome", mudancaValidator.instalacao)}>
+            <option>Selecione</option>
+            {instalacaos.map((item, i) => (
+              <option key={i} value={item.nome}>{item.nome}</option>
+            ))}
+          </Form.Select>
+          {errors.instalacao && <span>Campo Obrigatório</span>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="tipo">
-          <Form.Label>Data fim: </Form.Label>
-          <Form.Control isInvalid={errors.datafim} type="date" {...register("datafim", mudancaValidator.datafim)} />
-          {errors.datafim && <span>{errors.datafim.message}</span>}
+          <Form.Label>Data: </Form.Label>
+          <Form.Control isInvalid={errors.data} type="date" {...register("data", mudancaValidator.data)} />
+          {errors.data && <span>{errors.data.message}</span>}
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="endereço">
+          <Form.Label>Novo Endereço: </Form.Label>
+          <Form.Control isInvalid={errors.endereço} type="text" {...register("endereço", mudancaValidator.endereço)} />
+          {errors.endereço && <span>{errors.endereço.message}</span>}
         </Form.Group>
         <div className="text-center">
-          <Button onClick={handleSubmit(salvar)} className='btn btn-success'><FaCheck /> Salvar</Button>{' '}
-          <Link className='btn btn-danger' to={-1}><BsArrowLeft /> Voltar</Link>
+        <Button onClick={handleSubmit(salvar)} ><FaCheck /> Salvar</Button>{' '}
+          <Link className='btn btn-primary' to={-1}><FaArrowLeft /> Voltar</Link>
         </div>
       </Form>
 

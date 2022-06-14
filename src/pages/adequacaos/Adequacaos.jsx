@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Form } from 'react-bootstrap'
 import { useForm } from 'react-hook-form';
-import { FaCheck } from 'react-icons/fa'
+import { FaCheck, FaArrowLeft } from 'react-icons/fa'
 import { BsArrowLeft } from 'react-icons/bs'
 import AdequacaoService from '../../services/academico/AdequacaoService';
 import InstalacaoService from '../../services/academico/InstalacaoService';
 import adequacaoValidator from '../../validators/adequacaoValidator';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { mask } from 'remask';
  
 const Adequacaos = () => {
 
@@ -38,15 +39,20 @@ const Adequacaos = () => {
     navigate('/adequacaos')
   }
 
+  function handleChange(event) {
+    const mascara = event.target.getAttribute('mask')
+    setValue(event.target.name, mask(event.target.value, mascara))
+  }
+
   return (
     <div>
-      <h1>Adequacao</h1>
+      <h1>Adequação</h1>
 
       <Form >
-        <Form.Group className="mb-3" controlId="nome">
-          <Form.Label>Nome: </Form.Label>
-          <Form.Control isInvalid={errors.nome} type="text" {...register("nome", adequacaoValidator.nome)} />
-          {errors.nome && <span>{errors.nome.message}</span>}
+        <Form.Group className="mb-3" controlId="endereço">
+          <Form.Label>Endereço: </Form.Label>
+          <Form.Control isInvalid={errors.endereço} type="text" {...register("endereço", adequacaoValidator.endereço)} />
+          {errors.endereço && <span>{errors.endereço.message}</span>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="capacidade">
           <Form.Label>Capacidade: </Form.Label>
@@ -59,8 +65,8 @@ const Adequacaos = () => {
           {errors.tipo && <span>{errors.tipo.message}</span>}
         </Form.Group>
         <div className="text-center">
-          <Button onClick={handleSubmit(salvar)} className='btn btn-success'><FaCheck /> Salvar</Button>{' '}
-          <Link className='btn btn-danger' to={-1}><BsArrowLeft /> Voltar</Link>
+        <Button onClick={handleSubmit(salvar)} ><FaCheck /> Salvar</Button>{' '}
+          <Link className='btn btn-primary' to={-1}><FaArrowLeft /> Voltar</Link>
         </div>
       </Form>
 

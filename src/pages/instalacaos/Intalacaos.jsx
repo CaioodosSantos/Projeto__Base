@@ -48,7 +48,8 @@ const Instalacaos = () => {
       <Form >
         <Form.Group className="mb-3" controlId="nome">
           <Form.Label>Nome: </Form.Label>
-          <Form.Control isInvalid={errors.nome} type="text"  {...register("nome", instalacaoValidator.nome)} />
+          <Form.Control isInvalid={errors.nome} type="text"
+          {...register("nome", instalacaoValidator.nome)} />
           {errors.nome && <span>{errors.nome.message}</span>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="periodo">
@@ -59,21 +60,21 @@ const Instalacaos = () => {
         <Form.Group className="mb-3" controlId="nome">
           <Form.Label>Região: </Form.Label>{'   '}
           
-          <input isInvalid={errors.região} {...register("protocolo", instalacaoValidator.região)}
-          type="radio" name="região" id="ceilandia" value="ceilandia"/>{'    '}{errors.protocolo && <span>{errors.protocolo.message}</span>}
-          <label  for="ceilandia">Ceilândia</label>{'    '}
+          <input isInvalid={errors.regiao} {...register("regiao", instalacaoValidator.regiao)}
 
-          <input type="radio" name="região" id="taguatinga" value="taguatinga"/>{'    '}
+          type="radio" name="regiao" id="ceilandia" value="ceilandia"/>{'    '}{errors.regiao && <span>{errors.regiao.message}</span>}
+          <label  for="ceilandia">Ceilândia</label>{'    '}
+          <input type="radio" name="regiao" id="taguatinga" value="taguatinga"/>{'    '}
           <label for="taguatinga">Taguatinga</label>{'    '}
-          <input type="radio" name="região" id="gama" value="gama"/>{'    '}
+          <input type="radio" name="regiao" id="gama" value="gama"/>{'    '}
           <label for="gama">Gama</label>{'    '}
-          <input type="radio" name="região" id="samambaia" value="samambaia"/>{'    '}
+          <input type="radio" name="regiao" id="samambaia" value="samambaia"/>{'    '}
           <label for="samambaia">Samambaia</label>{'    '}
-          <input type="radio" name="região" id="recanto" value="recanto"/>{'    '}
+          <input type="radio" name="regiao" id="recanto" value="recanto"/>{'    '}
           <label for="recanto">Recanto das emas</label>{'    '}
-          <input type="radio" name="região" id="lago" value="lago"/>{'    '}
+          <input type="radio" name="regiao" id="lago" value="lago"/>{'    '}
           <label for="lago">Lago sul</label>{'    '}
-          <input type="radio" name="região" id="guara" value="guara"/>{'    '}
+          <input type="radio" name="regiao" id="guara" value="guara"/>{'    '}
           <label for="guara">Guará</label>{'    '}
 
         </Form.Group>

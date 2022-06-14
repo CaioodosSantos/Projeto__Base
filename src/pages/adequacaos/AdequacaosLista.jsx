@@ -33,23 +33,23 @@ const AdequacaosLista = () => {
 
       <Table striped bordered hover>
         <thead>
-          <tr>
-            <th>#</th>
-            <th>Nome</th>
+        <tr class="table-dark">
+            <th>Endereço</th>
             <th>Capacidade</th>
             <th>Tipo</th>
+            <th>Modificação</th>
           </tr>
         </thead>
         <tbody>
           {adequacaos.map((item, i) => (
-            <tr key={i}>
-              <td>
-              <Link style={{textDecoration: 'none'}} to={'/adequacaos/' + i}><FiEdit></FiEdit>Edit </Link>{'    '}
-              <Button onClick={() => apagar(i)} startIcon={<DeleteIcon /> }>Delete </Button>
-              </td>
-              <td>{item.nome}</td>
+            <tr key={i} class="table-primary">
+              <td>{item.endereço}</td>
               <td>{item.capacidade}</td>
               <td>{item.tipo}</td>
+              <td>
+              <Link style={{textDecoration: 'none'}} to={'/vistorias/' + i}><FiEdit></FiEdit>Edit </Link>{'    '}
+              <Button onClick={() => apagar(i)} startIcon={<DeleteIcon /> }>Delete </Button> 
+              </td>
             </tr>
           ))}
         </tbody>

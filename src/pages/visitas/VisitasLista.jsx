@@ -32,21 +32,25 @@ const VisitasLista = () => {
 
       <Table striped bordered hover>
         <thead>
-          <tr>
-            <th>#</th>
+        <tr class="table-dark">
             <th>Nome</th>
-            <th>Curso</th>
+            <th>Data</th>
+            <th>Telefone</th>
+            <th>Motivo</th>
+            <th>Modificação</th>
           </tr>
         </thead>
         <tbody>
           {visitas.map((item, i) => (
-            <tr key={i}>
+            <tr key={i} class="table-primary">
+              <td class="text-primary">{item.nome}</td>
+              <td>{item.data}</td>
+              <td>{item.telefone}</td>
+              <td>{item.motivo}</td>
               <td>
               <Link style={{textDecoration: 'none'}} to={'/visitas/' + i}><FiEdit></FiEdit>Edit </Link>{'    '}
               <Button onClick={() => apagar(i)} startIcon={<DeleteIcon /> }>Delete </Button> 
               </td>
-              <td>{item.nome}</td>
-              <td>{item.curso}</td>
             </tr>
           ))}
         </tbody>

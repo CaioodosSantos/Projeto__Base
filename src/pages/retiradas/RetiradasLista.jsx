@@ -18,7 +18,7 @@ const RetiradasLista = () => {
   }, [])
 
   function apagar(id) {
-    if(window.confirm('Deseja realmente excluir o registro?')){
+    if(window.confirm('Deseja realmente excluir o registro?')){ 
       RetiradaService.delete(id)
       setRetiradas(RetiradaService.getAll())
     }
@@ -32,37 +32,25 @@ const RetiradasLista = () => {
 
       <Table striped bordered hover>
         <thead>
-          <tr>
-            <th>#</th>
+        <tr class="table-dark">
             <th>Nome</th>
-            <th>CPF</th>
-            <th>Matricula</th>
-            <th>Email</th>
+            <th>Data</th>
             <th>Telefone</th>
-            <th>CEP</th>
-            <th>Logradouro</th>
-            <th>Complemento</th>
-            <th>Numero</th>
-            <th>Bairro</th>
+            <th>Email</th>
+            <th>Modificação</th>
           </tr>
         </thead>
         <tbody>
           {retiradas.map((item, i) => (
-            <tr key={i}>
+            <tr key={i} class="table-primary">
+              <td>{item.nome}</td>
+              <td>{item.data}</td>
+              <td>{item.telefone}</td>
+              <td>{item.email}</td>
               <td>
               <Link style={{textDecoration: 'none'}} to={'/retiradas/' + i}><FiEdit></FiEdit>Edit </Link>{'    '}
               <Button onClick={() => apagar(i)} startIcon={<DeleteIcon /> }>Delete </Button> 
-              </td>
-              <td>{item.nome}</td>
-              <td>{item.cpf}</td>
-              <td>{item.matricula}</td>
-              <td>{item.email}</td>
-              <td>{item.telefone}</td>
-              <td>{item.cep}</td>
-              <td>{item.logradouro}</td>
-              <td>{item.complemento}</td>
-              <td>{item.numero}</td>
-              <td>{item.bairro}</td>           
+              </td>         
             </tr>
           ))}
         </tbody>
