@@ -1,0 +1,70 @@
+#block{
+    height: 15rem;
+    color: #708090;
+}
+#text-block{
+    text-align: center;
+    padding: 50px;
+}
+#block_pag1{
+    width: 200px;
+    margin-top: 25px;
+            
+            
+}
+#mensagens{
+    
+    width: 700px;
+    height: 500px;
+
+}
+.container{
+    color: #4169E1;
+    margin: 5px solid black;
+}
+.card{
+    position: relative;
+    width: 250px;
+    height: 250px;
+    background: url('https://st.depositphotos.com/1635204/3951/i/450/depositphotos_39519879-stock-photo-elegant-dark-blue-background.jpg')
+    center no-repeat;
+    background-size: cover;
+    border-radius: 20px;
+    z-index: 1;
+    overflow: hidden;
+}
+.card::before,
+.card::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: calc(60% + 35px);
+    background-color: #fff;
+    transition: transform .5s .25s ease-in;
+    z-index: -1;
+}
+
+.card::before{
+    top:0;
+    clip-path:polygon( 0 0, 100% 45%, 0% 100%);
+    transform: translateY(-100%);
+}
+
+.card::after{
+    bottom: 0;
+    clip-path: polygon(0 55%, 100% 0, 100% 100%, 0% 100%);
+    transform: translateY(100%);
+}
+.card__content{
+    opacity: 0;
+    transition: opacity .25s;
+}
+.card:hover::before,
+.card:hover::after{
+    transform: translateY(0);
+}
+.card:hover .card__content{
+    opacity: 1;
+    transition: .75s;
+}
