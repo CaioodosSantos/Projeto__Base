@@ -70,7 +70,7 @@ const Mudancas = () => {
           {errors.data && <span>{errors.data.message}</span>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="endereço">
-          <Form.Label>Novo Endereço: </Form.Label>
+          <Form.Label>Novo Endereço:(opcional) </Form.Label>
           <Form.Control isInvalid={errors.endereço} type="text" {...register("endereço", mudancaValidator.endereço)} />
           {errors.endereço && <span>{errors.endereço.message}</span>}
         </Form.Group>

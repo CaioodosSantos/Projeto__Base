@@ -36,7 +36,7 @@ const InstalacaosLista = () => {
             
             <th>Nome</th>
             <th>Data e Horário</th>
-            <th>Região</th>
+            <th>CEP</th>
             <th>N° Protocolo</th>
             <th>Telefone</th>
             <th>Endereço</th>
@@ -50,7 +50,7 @@ const InstalacaosLista = () => {
               
               <td class="text-primary">{item.nome}</td>
               <td>{item.periodo}</td>
-              <td>{item.regiao}</td>
+              <td>{item.cep}</td>
               <td>{item.protocolo}</td>
               <td>{item.telefone}</td>
               <td>{item.endereço}</td>

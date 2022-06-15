@@ -57,26 +57,12 @@ const Instalacaos = () => {
           <Form.Control isInvalid={errors.periodo} type="datetime-local" {...register("periodo", instalacaoValidator.periodo)} />
           {errors.periodo && <span>{errors.periodo.message}</span>}
         </Form.Group>
-        <Form.Group className="mb-3" controlId="nome">
-          <Form.Label>Região: </Form.Label>{'   '}
-          
-          <input isInvalid={errors.regiao} {...register("regiao", instalacaoValidator.regiao)}
-
-          type="radio" name="regiao" id="ceilandia" value="ceilandia"/>{'    '}{errors.regiao && <span>{errors.regiao.message}</span>}
-          <label  for="ceilandia">Ceilândia</label>{'    '}
-          <input type="radio" name="regiao" id="taguatinga" value="taguatinga"/>{'    '}
-          <label for="taguatinga">Taguatinga</label>{'    '}
-          <input type="radio" name="regiao" id="gama" value="gama"/>{'    '}
-          <label for="gama">Gama</label>{'    '}
-          <input type="radio" name="regiao" id="samambaia" value="samambaia"/>{'    '}
-          <label for="samambaia">Samambaia</label>{'    '}
-          <input type="radio" name="regiao" id="recanto" value="recanto"/>{'    '}
-          <label for="recanto">Recanto das emas</label>{'    '}
-          <input type="radio" name="regiao" id="lago" value="lago"/>{'    '}
-          <label for="lago">Lago sul</label>{'    '}
-          <input type="radio" name="regiao" id="guara" value="guara"/>{'    '}
-          <label for="guara">Guará</label>{'    '}
-
+        <Form.Group className="mb-3" controlId="periodo">
+          <Form.Label>CEP: </Form.Label>
+          <Form.Control isInvalid={errors.cep} type="text" 
+          {...register("cep", instalacaoValidator.cep)} 
+          mask="99999-999" onChange={handleChange} />
+          {errors.cep && <span>{errors.cep.message}</span>}
         </Form.Group>
         <Form.Group className="mb-3" controlId="protocolo">
           <Form.Label>Número protocolo: </Form.Label>

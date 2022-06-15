@@ -19,6 +19,7 @@ const instalacaoValidator = {
         
     },
     protocolo: {
+        required: "O campo protocolo é obrigatório, para identificação de contrato",
         minLength: {
             value: 1,
             message: "Quantidade mínima de caracteres não informado"
